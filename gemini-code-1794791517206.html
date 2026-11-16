@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ko^ki | 自己紹介</title>
+  <style>
+    :root {
+      --bg-page: #F6F7F4;
+      --bg-card: #FFFFFF;
+      --bg-accent-soft: #E8EFEA;
+      --text-main: #2E3532;
+      --text-sub: #5A6560;
+      --accent: #5B7B6A;
+      --accent-dark: #456052;
+      --border: #DCE3DE;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN",
+        "Hiragino Sans", "Yu Gothic", Meiryo, sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      line-height: 1.8;
+      font-size: 16px;
+    }
+
+    /* ヘッダー・メニュー */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background-color: rgba(246, 247, 244, 0.96);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-inner {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 12px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .site-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--accent-dark);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+    }
+
+    /* ハンバーガーボタン（広い画面では非表示） */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      width: 40px;
+      height: 40px;
+      padding: 0;
+      background-color: transparent;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .menu-toggle .bar {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background-color: var(--accent-dark);
+      border-radius: 2px;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .menu-toggle.is-open .bar:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .menu-toggle.is-open .bar:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle.is-open .bar:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .site-nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 8px;
+    }
+
+    .site-nav a {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-main);
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .site-nav a:hover,
+    .site-nav a:focus {
+      background-color: var(--bg-accent-soft);
+      color: var(--accent-dark);
+    }
+
+    /* メインレイアウト */
+    .container {
+      max-width: 820px;
+      margin: 28px auto 48px;
+      padding: 0 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px;
+      scroll-margin-top: 72px;
+    }
+
+    .hero-card {
+      background: linear-gradient(180deg, #FFFFFF 0%, #F1F5F2 100%);
+    }
+
+    .badge {
+      display: inline-block;
+      margin: 0 0 10px;
+      padding: 4px 12px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent-dark);
+      background-color: var(--bg-accent-soft);
+      border-radius: 999px;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: 2rem;
+      line-height: 1.3;
+      color: var(--text-main);
+    }
+
+    .lead {
+      margin: 0;
+      color: var(--text-sub);
+      font-size: 1.05rem;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      padding-bottom: 8px;
+      font-size: 1.25rem;
+      color: var(--accent-dark);
+      border-bottom: 2px solid var(--bg-accent-soft);
+    }
+
+    .card p {
+      margin: 0 0 14px;
+    }
+
+    .card p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* フッター */
+    .site-footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.85rem;
+      color: var(--text-sub);
+    }
+
+    /* 狭い画面（スマートフォン）向けハンバーガーメニュー切り替え */
+    @media (max-width: 600px) {
+      .header-inner {
+        padding: 10px 16px;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      .site-nav {
+        display: none;
+        width: 100%;
+        padding-top: 8px;
+        border-top: 1px solid var(--border);
+      }
+
+      .site-nav.is-open {
+        display: block;
+      }
+
+      .site-nav ul {
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .site-nav a {
+        display: block;
+        padding: 10px 12px;
+        border-radius: 8px;
+        font-size: 0.95rem;
+      }
+
+      .container {
+        margin: 20px auto 36px;
+        padding: 0 14px;
+        gap: 18px;
+      }
+
+      .card {
+        padding: 20px 18px;
+        scroll-margin-top: 68px;
+      }
+
+      h1 {
+        font-size: 1.65rem;
+      }
+
+      h2 {
+        font-size: 1.15rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 上部メニュー -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#top" class="site-title">ko^ki</a>
+
+      <!-- スマホ用ハンバーガーボタン -->
+      <button
+        type="button"
+        class="menu-toggle"
+        id="menuToggle"
+        aria-controls="siteNav"
+        aria-expanded="false"
+        aria-label="メニューを開く"
+      >
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+      <!-- ナビゲーションメニュー -->
+      <nav class="site-nav" id="siteNav" aria-label="ページ内メニュー">
+        <ul>
+          <li><a href="#profile">プロフィール</a></li>
+          <li><a href="#experience">水泳の経験</a></li>
+          <li><a href="#goal">目標</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- メインコンテンツ -->
+  <main id="top" class="container">
+
+    <!-- プロフィール -->
+    <section id="profile" class="card hero-card">
+      <p class="badge">大学1年生 / 情報工学</p>
+      <h1>ko^ki</h1>
+      <p class="lead">
+        大学1年生として情報工学を学んでいます。
+      </p>
+    </section>
+
+    <!-- 水泳の経験 -->
+    <section id="experience" class="card">
+      <h2>これまでの経験（水泳）</h2>
+      <p>
+        小学3年生から中学3年生まで水泳に取り組みました。水泳を始める前は少しも泳げず、小学3年生のときにサッカーか水泳のどちらを習いたいかを選んだ際、楽しむ目的で水泳を選びました。
+      </p>
+      <p>
+        しかし、いつの間にか選手育成コースに入っており、もともと体力が少なく運動が苦手だったため、日々の練習はとてもきついものでした。最初はトイレに逃げてサボってしまうこともありましたが、自分の家で筋トレやランニングをして体を鍛えるようにしました。
+      </p>
+      <p>
+        だんだんと泳げるようになるにつれてサボる回数も減り、ランクごとのテストで基準を達成して少しずつランクが上がっていきました。ある時コーチに「200m泳いでみて」と言われて泳ぎ切ったところ合格となり、一気に2ランク飛び級したこともあります。結果として腹筋が割れるなど体が良くなり、泳ぐことが好きになりました。
+      </p>
+    </section>
+
+    <!-- 目標 -->
+    <section id="goal" class="card">
+      <h2>これからの目標</h2>
+      <p>
+        情報工学の学びを通じて基礎から着実に力を身につけ、苦手意識のあることにも一歩ずつ取り組みながら、できることを広げていくことが目標
