@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ko^ki | 自己紹介</title>
+  <style>
+    /* =========================================
+       ベース設定・目に優しいナチュラルカラー
+       ========================================= */
+    :root {
+      --bg-page: #F6F7F4;
+      --bg-card: #FFFFFF;
+      --primary-accent: #5B7B6A;
+      --primary-dark: #466153;
+      --sub-accent: #E8EFEA;
+      --text-main: #2F3632;
+      --text-sub: #5A635E;
+      --border-soft: #DCE3DE;
+      --shadow-soft: 0 4px 16px rgba(47, 54, 50, 0.05);
+      --radius-lg: 16px;
+      --radius-md: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      line-height: 1.85;
+      font-size: clamp(0.95rem, 2.5vw, 1.02rem);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* =========================================
+       ヘッダー領域
+       ========================================= */
+    .header {
+      background-color: var(--sub-accent);
+      border-bottom: 1px solid var(--border-soft);
+      padding: clamp(2.75rem, 7vw, 4.25rem) 1.25rem;
+      text-align: center;
+    }
+
+    .header-inner {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .role-badge {
+      display: inline-block;
+      background-color: var(--bg-card);
+      color: var(--primary-dark);
+      border: 1px solid var(--border-soft);
+      padding: 0.3rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.9rem;
+    }
+
+    .site-name {
+      font-size: clamp(2rem, 6vw, 2.75rem);
+      font-weight: 800;
+      color: var(--text-main);
+      letter-spacing: 0.04em;
+      line-height: 1.25;
+      margin-bottom: 0.6rem;
+    }
+
+    .header-intro {
+      color: var(--text-sub);
+      font-size: clamp(0.95rem, 2.5vw, 1.05rem);
+      font-weight: 500;
+    }
+
+    /* =========================================
+       メインコンテンツ領域
+       ========================================= */
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: clamp(1.75rem, 5vw, 2.75rem) 1.25rem 3.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+    }
+
+    .card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-lg);
+      padding: clamp(1.4rem, 4vw, 2rem);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.65rem;
+      border-bottom: 2px solid var(--sub-accent);
+    }
+
+    .section-en {
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--primary-accent);
+    }
+
+    .section-ja {
+      font-size: clamp(1.15rem, 3vw, 1.3rem);
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    /* =========================================
+       1. Profile / 学んでいること
+       ========================================= */
+    .profile-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.9rem;
+    }
+
+    .profile-item {
+      background-color: var(--bg-page);
+      border-radius: var(--radius-md);
+      padding: 1rem 1.25rem;
+      border-left: 4px solid var(--primary-accent);
+    }
+
+    .profile-label {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text-sub);
+      margin-bottom: 0.2rem;
+    }
+
+    .profile-value {
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    /* =========================================
+       2. Goal / 目標
+       ========================================= */
+    .goal-box {
+      background-color: var(--sub-accent);
+      border-radius: var(--radius-md);
+      padding: 1.25rem 1.4rem;
+      color: var(--text-main);
+      font-weight: 500;
+    }
+
+    /* =========================================
+       3. Experience / 継続した経験（水泳）
+       ========================================= */
+    .exp-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 1rem;
+    }
+
+    .exp-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+    }
+
+    .exp-period {
+      display: inline-block;
+      background-color: var(--sub-accent);
+      color: var(--primary-dark);
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 0.2rem 0.75rem;
+      border-radius: 9999px;
+    }
+
+    .exp-body {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+      color: var(--text-main);
+    }
+
+    .exp-highlight {
+      margin-top: 0.35rem;
+      background-color: var(--bg-page);
+      border: 1px solid var(--border-soft);
+      border-left: 4px solid var(--primary-accent);
+      border-radius: var(--radius-md);
+      padding: 1rem 1.2rem;
+      color: var(--text-sub);
+      font-size: 0.95rem;
+    }
+
+    .exp-highlight strong {
+      color: var(--primary-dark);
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.98rem;
+    }
+
+    /* =========================================
+       フッター
+       ========================================= */
+    .footer {
+      text-align: center;
+      padding: 1.75rem 1rem 2.25rem;
+      color: var(--text-sub);
+      font-size: 0.85rem;
+    }
+
+    /* =========================================
+       レスポンシブ調整（広い画面向け）
+       ========================================= */
+    @media (min-width: 600px) {
+      .profile-list {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ヘッダー -->
+  <header class="header">
+    <div class="header-inner">
+      <span class="role-badge">大学1年生</span>
+      <h1 class="site-name">ko^ki</h1>
+      <p class="header-intro">大学1年生として情報工学を学んでいます。</p>
+    </div>
+  </header>
+
+  <!-- メインコンテンツ -->
+  <main class="container">
+
+    <!-- セクション1：Profile / 学んでいること -->
+    <section class="card" aria-labelledby="heading-profile">
+      <div class="section-header">
+        <span class="section-en">Profile</span>
+        <h2 class="section-ja" id="heading-profile">基本情報・学んでいること</h2>
+      </div>
+
+      <div class="profile-list">
+        <div class="profile-item">
+          <div class="profile-label">名前</div>
+          <div class="profile-value">ko^ki</div>
+        </div>
+        <div class="profile-item">
+          <div class="profile-label">学年</div>
+          <div class="profile-value">大学1年生</div>
+        </div>
+        <div class="profile-item">
+          <div class="profile-label">学んでいること</div>
+          <div class="profile-value">情報工学</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- セクション2：Goal / 目標 -->
+    <section class="card" aria-labelledby="heading-goal">
+      <div class="section-header">
+        <span class="section-en">Goal</span>
+        <h2 class="section-ja" id="heading-goal">目標</h2>
+      </div>
+
+      <div class="goal-box">
+        情報工学の学びを活かして、自分なりのペースで一歩ずつ成長し、新しいことに挑戦していくこと。
+      </div>
+    </section>
+
+    <!-- セクション3：Experience / 継続した経験（水泳） -->
+    <section class="card" aria-labelledby="heading-experience">
+      <div class="section-header">
+        <span class="section-en">Experience</span>
+        <h2 class="section-ja" id="heading-experience">継続した経験</h2>
+      </div>
+
+      <div class="exp-header">
+        <h3 class="exp-title">水泳</h3>
+        <span class="exp-period">小学3年生 〜 中学3年生</span>
+      </div>
+
+      <div class="exp-body">
+        <p>
+          小学3年生から中学3年生まで水泳に取り組んでいました。始める前は全く泳げず、サッカーか水泳の選択から楽しむ目的で始めましたが、いつの間にか選手育成コースに入っていました。
+        </p>
+        <p>
+          もともと体力が少なく運動が苦手だったため、練習がきつく最初はトイレに逃げてサボっていました。そこで、自宅で筋トレやランニングをして体を鍛えました。だんだん泳げるようになるとサボる回数も減り、ランクごとのテストで基準を満たして昇格を重ねました。
+        </p>
+        <p>
+          ある時コーチに言われて200mを泳ぐと合格し、2ランクの飛び級も経験しました。結果として腹筋が割れるなど体が良くなり、水泳が好きになりました。
+        </p>
+
+        <div class="exp-highlight">
+          <strong>取り組みのポイント・変化</strong>
+          自宅での筋トレやランニングによる体力づくりを継続したことで、200m合格による2ランクの飛び級を経験し、体力の向上とともに水泳が好きになりました。
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- フッター -->
+  <footer class="footer">
+    <p>&copy; ko^ki</p>
+  </footer>
+
+</body>
+</html>
